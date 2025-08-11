@@ -17,7 +17,7 @@ colorbar;
 colormap('parula');
 xlabel('x (μm)');
 ylabel('y (μm)');
-title('Permittivity Distribution');
+title('Refractive Index Distribution');
 
 % Tight layout
 set(gca, 'Position', [0.15 0.15 0.7 0.7]);

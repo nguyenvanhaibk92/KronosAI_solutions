@@ -8,7 +8,7 @@ if size(cf_Hs,1) ~= numel(rib_ws) && size(cf_Hs,2) == numel(rib_ws)
     cf_Hs = cf_Hs.'; % make rows = widths
 end
 
-figure('Position',[120,120,780,420]); hold on; grid on;
+figure('Position',[120,120,700,300]); hold on; grid on;
 colors = lines(numel(lam0s));
 
 for j = 1:numel(lam0s)
@@ -31,7 +31,7 @@ ylim([0, .35]);
 if nargin >= 4 && ~isempty(save_name)
     if ~exist('imgs','dir'); mkdir('imgs'); end
     set(gcf,'Color','w');
-    exportgraphics(gcf, fullfile('imgs', save_name), 'Resolution', 600);
+    exportgraphics(gcf, fullfile('imgs', save_name), 'Resolution', 1200);
     fprintf('Plot saved as %s\n', fullfile('imgs', save_name));
 end
 
