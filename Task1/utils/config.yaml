@@ -1,0 +1,64 @@
+# config.yaml
+# Configuration for electromagnetic PINN simulation
+
+# GPU Configuration
+gpu:
+  device: "0"
+
+# Domain and PML setup
+domain:
+  lpml: 0.5  # PML layer thickness
+  xy_in: 3.0
+  # Extended domain including PML layers will be computed
+
+# Electromagnetic parameters
+physics:
+  omega: 25  # Angular frequency ω
+  wavenumber: 25  # Dominant frequency (same as omega)
+  source_pos: [0.0, 0.5]  # Point source position (in interior)
+  a0: 5  # PML parameter
+
+# Source parameters
+source:
+  sigma_squared: 0.0001  # Gaussian source width
+  threshold: 0.00001  # Threshold for source cutoff
+
+# SIREN network configuration
+network:
+  omega_0: 30  # Frequency parameter for SIREN initialization
+  neurons: [2, 256, 256, 256, 256, 256, 1]  # Network architecture [input, hidden..., output]
+
+# Training parameters
+training:
+  epochs: 30000
+  learning_rate: 0.0001
+  warmup_steps: 1000
+  max_grad_norm: 1.0
+
+# Point generation
+points:
+  base_nx: 100
+  base_ny: 100
+  n_circle_points: 5000
+  circle_radius_start: 0.1
+  circle_radius_growth: 0.5  # Growth factor for radius over training
+
+# Model paths
+paths:
+  level_set_model: "models/circle_level_set_model.pkl"
+
+# Permittivity function parameters
+permittivity:
+  shift_x: 0.2
+  shift_y: 0.25
+  bounds_min: -2.0
+  bounds_max: 2.0
+  inside_value: 2.0  # High permittivity inside
+  outside_value: 1.0  # Free space
+
+# Phase 2 training parameters
+phase2_training:
+  correction_weight: 0.1  # Weight for correction networks
+  epochs_ratio: 1.0  # Phase 2 epochs = phase1_epochs * epochs_ratio
+  learning_rate_ratio: 0.1  # Phase 2 LR = phase1_LR * lr_ratio
+  warmup_ratio: 0.25  # Phase 2 warmup = phase1_warmup * warmup_ratio

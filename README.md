@@ -1,5 +1,5 @@
 # KronosAI_solutions
 
-- Task1:
+- Task1: SIREN-PINN
 
-- Task2:
+- Task2: Buried waveguide
