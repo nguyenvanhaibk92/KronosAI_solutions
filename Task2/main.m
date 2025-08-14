@@ -19,7 +19,7 @@ fprintf('=== TASK 1: Mode Profile Visualization ===\n');
 % --- Analysis at 1550 nm wavelength ---
 fprintf('Analyzing modes at 1550 nm...\n');
 lam0 = 1550;        % Wavelength [nm]
-rib_w = 45;         % Rib width [nm]
+rib_w = 450;         % Rib width [nm]
 
 % Solve for waveguide modes
 [Ex, Ey, Ez, Hx, Hy, Hz, NEFF, Gamma_Si] = rib_waveguide_solver(lam0, rib_w);
@@ -28,10 +28,14 @@ rib_w = 45;         % Rib width [nm]
 plot_domain(1);
 
 % Plot TE0 mode (Ex component)
-plot_single_field(Ex, 'TE_0 (E_x)', 1, NEFF, ['TE0_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ex, 'TE_0 (E_x)', 1, NEFF, ['TE0_Ex_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ey, 'TE_0 (E_y)', 1, NEFF, ['TE0_Ey_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ez, 'TE_0 (E_z)', 1, NEFF, ['TE0_Ez_lam0_' num2str(lam0) '.png']);
 
 % Plot TM0 mode (Ey component)  
-plot_single_field(Ey, 'TM_0 (E_y)', 2, NEFF, ['TM0_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ex, 'TM_0 (E_x)', 2, NEFF, ['TM0_Ex_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ey, 'TM_0 (E_y)', 2, NEFF, ['TM0_Ey_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ez, 'TM_0 (E_z)', 2, NEFF, ['TM0_Ez_lam0_' num2str(lam0) '.png']);
 
 % --- Analysis at 1310 nm wavelength ---
 fprintf('Analyzing modes at 1310 nm...\n');
@@ -42,10 +46,14 @@ rib_w = 450;        % Rib width [nm]
 [Ex, Ey, Ez, Hx, Hy, Hz, NEFF, Gamma_Si] = rib_waveguide_solver(lam0, rib_w);
 
 % Plot TE0 mode (Ex component)
-plot_single_field(Ex, 'TE_0 (E_x)', 1, NEFF, ['TE0_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ex, 'TE_0 (E_x)', 1, NEFF, ['TE0_Ex_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ey, 'TE_0 (E_y)', 1, NEFF, ['TE0_Ey_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ez, 'TE_0 (E_z)', 1, NEFF, ['TE0_Ez_lam0_' num2str(lam0) '.png']);
 
 % Plot TM0 mode (Ey component)
-plot_single_field(Ey, 'TM_0 (E_y)', 2, NEFF, ['TM0_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ex, 'TM_0 (E_x)', 2, NEFF, ['TM0_Ex_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ey, 'TM_0 (E_y)', 2, NEFF, ['TM0_Ey_lam0_' num2str(lam0) '.png']);
+plot_single_field(Ez, 'TM_0 (E_z)', 2, NEFF, ['TM0_Ez_lam0_' num2str(lam0) '.png']);
 
 %% ========================================================================
 %% TASK 2: Effective index vs wavelength for first 5 modes
